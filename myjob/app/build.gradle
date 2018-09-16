@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        proconfig {
+            keyAlias 'voicepro'
+            keyPassword 'happyday888'
+            storeFile file('C:/Users/Administrator/Desktop/voice note/key/voicepro.jks')
+            storePassword 'happyday888'
+        }
+    }
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.kevin.home.myjob"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.proconfig
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '27.0.3'
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(path: ':lib_umeng')
+    implementation 'com.android.support:support-v4:25.4.0'
+
+}
